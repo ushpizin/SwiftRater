@@ -129,6 +129,7 @@ import StoreKit
             UsageDataManager.shared.reset()
             UsageDataManager.shared.trackingVersion = SwiftRater.appVersion
         }
+        incrementUsageCount()
     }
 
     public static func incrementSignificantUsageCount() {
