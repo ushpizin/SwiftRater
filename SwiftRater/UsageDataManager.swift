@@ -124,7 +124,7 @@ class UsageDataManager {
                 printMessage(message: " will check daysUntilPrompt")
                 let dateOfFirstLaunch = Date(timeIntervalSince1970: firstUseDate)
                 let timeSinceFirstLaunch = Date().timeIntervalSince(dateOfFirstLaunch)
-                let timeUntilRate = 60 * 60 * 24 * daysUntilPrompt;
+                let timeUntilRate = 60 * 60 * 24 * daysUntilPrompt
                 guard Int(timeSinceFirstLaunch) < timeUntilRate else { return true }
             }
 
@@ -145,7 +145,7 @@ class UsageDataManager {
                 printMessage(message: " will check daysBeforeReminding")
                 let dateOfReminderRequest = Date(timeIntervalSince1970: reminderRequestToRate)
                 let timeSinceReminderRequest = Date().timeIntervalSince(dateOfReminderRequest)
-                let timeUntilRate = 60 * 60 * 24 * daysBeforeReminding;
+                let timeUntilRate = 60 * 60 * 24 * daysBeforeReminding
                 guard Int(timeSinceReminderRequest) < timeUntilRate else { return true }
             }
         }
@@ -173,7 +173,7 @@ class UsageDataManager {
     func saveReminderRequestDate() {
         reminderRequestToRate = Date().timeIntervalSince1970
     }
-    
+
     private func printMessage(message: String) {
         if SwiftRater.showLog {
             print("[SwiftRater] \(message)")

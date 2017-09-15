@@ -124,7 +124,7 @@ import StoreKit
 
     private override init() {
         super.init()
-        
+
         if SwiftRater.resetWhenAppUpdated && SwiftRater.appVersion != UsageDataManager.shared.trackingVersion {
             UsageDataManager.shared.reset()
             UsageDataManager.shared.trackingVersion = SwiftRater.appVersion
@@ -141,7 +141,7 @@ import StoreKit
             SwiftRater.shared.showRatingAlert()
         }
     }
-    
+
     public static func rateApp() {
         SwiftRater.shared.rateAppWithAppStore()
         UsageDataManager.shared.isRateDone = true
@@ -166,43 +166,43 @@ import StoreKit
             UsageDataManager.shared.isRateDone = true
         } else {
             let alertController = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
-            
+
             let rateAction = UIAlertAction(title: rateText, style: .default, handler: {
                 [unowned self] action -> Void in
                 self.rateAppWithAppStore()
                 UsageDataManager.shared.isRateDone = true
             })
             alertController.addAction(rateAction)
-            
+
             if SwiftRater.showLaterButton {
                 alertController.addAction(UIAlertAction(title: laterText, style: .default, handler: {
                     action -> Void in
                     UsageDataManager.shared.saveReminderRequestDate()
                 }))
             }
-            
+
             alertController.addAction(UIAlertAction(title: cancelText, style: .cancel, handler: {
                 action -> Void in
                 UsageDataManager.shared.isRateDone = true
             }))
-            
+
             if #available(iOS 9.0, *) {
                 alertController.preferredAction = rateAction
             }
-            
+
             UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
     }
-    
+
     private func rateAppWithAppStore() {
         #if arch(i386) || arch(x86_64)
-            print("APPIRATER NOTE: iTunes App Store is not supported on the iOS simulator. Unable to open App Store page.");
+            print("APPIRATER NOTE: iTunes App Store is not supported on the iOS simulator. Unable to open App Store page.")
         #else
             guard let appId = SwiftRater.appId,
                   let url = URL(string: "https://itunes.apple.com/app/id\(appId)?action=write-review") else {
                     return
             }
-            
+
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(url)
             } else {
