@@ -8,14 +8,12 @@
 
 import UIKit
 
-let SwiftRaterInvalid = -1
-
 class UsageDataManager {
 
-    var daysUntilPrompt: Int = SwiftRaterInvalid
-    var usesUntilPrompt: Int = SwiftRaterInvalid
-    var significantUsesUntilPrompt: Int = SwiftRaterInvalid
-    var daysBeforeReminding: Int = SwiftRaterInvalid
+    var daysUntilPrompt: Int?
+    var usesUntilPrompt: Int?
+    var significantUsesUntilPrompt: Int?
+    var daysBeforeReminding: Int?
 
     var showLaterButton: Bool = true
     var debugMode: Bool = false
@@ -120,7 +118,7 @@ class UsageDataManager {
 
         if reminderRequestToRate == 0 {
             // check if the app has been used enough days
-            if daysUntilPrompt != SwiftRaterInvalid {
+            if let daysUntilPrompt = daysUntilPrompt {
                 printMessage(message: " will check daysUntilPrompt")
                 let dateOfFirstLaunch = Date(timeIntervalSince1970: firstUseDate)
                 let timeSinceFirstLaunch = Date().timeIntervalSince(dateOfFirstLaunch)
@@ -129,19 +127,19 @@ class UsageDataManager {
             }
 
             // check if the app has been used enough times
-            if usesUntilPrompt != SwiftRaterInvalid {
+            if let usesUntilPrompt = usesUntilPrompt {
                 printMessage(message: " will check usesUntilPrompt")
                 guard usesCount < usesUntilPrompt else { return true }
             }
 
             // check if the user has done enough significant events
-            if significantUsesUntilPrompt != SwiftRaterInvalid {
+            if let significantUsesUntilPrompt = significantUsesUntilPrompt {
                 printMessage(message: " will check significantUsesUntilPrompt")
                 guard significantEventCount < significantUsesUntilPrompt else { return true }
             }
         } else {
             // if the user wanted to be reminded later, has enough time passed?
-            if daysBeforeReminding != SwiftRaterInvalid {
+            if let daysBeforeReminding = daysBeforeReminding {
                 printMessage(message: " will check daysBeforeReminding")
                 let dateOfReminderRequest = Date(timeIntervalSince1970: reminderRequestToRate)
                 let timeSinceReminderRequest = Date().timeIntervalSince(dateOfReminderRequest)

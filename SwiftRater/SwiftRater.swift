@@ -19,7 +19,7 @@ import StoreKit
 
     public let SwiftRaterErrorDomain = "Siren Error Domain"
 
-    public static var daysUntilPrompt: Int {
+    public static var daysUntilPrompt: Int? {
         get {
             return UsageDataManager.shared.daysUntilPrompt
         }
@@ -27,7 +27,7 @@ import StoreKit
             UsageDataManager.shared.daysUntilPrompt = newValue
         }
     }
-    public static var usesUntilPrompt: Int {
+    public static var usesUntilPrompt: Int? {
         get {
             return UsageDataManager.shared.usesUntilPrompt
         }
@@ -35,7 +35,7 @@ import StoreKit
             UsageDataManager.shared.usesUntilPrompt = newValue
         }
     }
-    public static var significantUsesUntilPrompt: Int {
+    public static var significantUsesUntilPrompt: Int? {
         get {
             return UsageDataManager.shared.significantUsesUntilPrompt
         }
@@ -44,7 +44,7 @@ import StoreKit
         }
     }
 
-    public static var daysBeforeReminding: Int {
+    public static var daysBeforeReminding: Int? {
         get {
             return UsageDataManager.shared.daysBeforeReminding
         }
