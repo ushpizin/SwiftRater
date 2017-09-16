@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29116F907DD24DC0C96E97E6 /* Pods_SwiftRaterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BDBE71CB8B2A5B4CB8052D1 /* Pods_SwiftRaterTests.framework */; };
 		48B229A41F6D068F009A99E8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B229A31F6D068F009A99E8 /* Utils.swift */; };
-		645FF66F1E8B8CD0001D5563 /* SwiftRater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 645FF6651E8B8CD0001D5563 /* SwiftRater.framework */; };
-		645FF6741E8B8CD0001D5563 /* SwiftRaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645FF6731E8B8CD0001D5563 /* SwiftRaterTests.swift */; };
 		645FF6761E8B8CD0001D5563 /* SwiftRater.h in Headers */ = {isa = PBXBuildFile; fileRef = 645FF6681E8B8CD0001D5563 /* SwiftRater.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		645FF6831E8B8D0B001D5563 /* SwiftRater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645FF6801E8B8D0B001D5563 /* SwiftRater.swift */; };
 		645FF6851E8B8D0B001D5563 /* UsageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645FF6821E8B8D0B001D5563 /* UsageDataManager.swift */; };
@@ -18,27 +15,11 @@
 		EA49F408465298B9253CD32E /* Pods_SwiftRater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E470D355039E3E4691BF93 /* Pods_SwiftRater.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		645FF6701E8B8CD0001D5563 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 645FF65C1E8B8CD0001D5563 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 645FF6641E8B8CD0001D5563;
-			remoteInfo = SwiftRater;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		0BDBE71CB8B2A5B4CB8052D1 /* Pods_SwiftRaterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftRaterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		279431CCCB72082209407FDF /* Pods-SwiftRaterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRaterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRaterTests/Pods-SwiftRaterTests.release.xcconfig"; sourceTree = "<group>"; };
-		4405946C15D29B7E7A05818B /* Pods-SwiftRaterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftRaterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftRaterTests/Pods-SwiftRaterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		48B229A31F6D068F009A99E8 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		645FF6651E8B8CD0001D5563 /* SwiftRater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftRater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		645FF6681E8B8CD0001D5563 /* SwiftRater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftRater.h; sourceTree = "<group>"; };
 		645FF6691E8B8CD0001D5563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		645FF66E1E8B8CD0001D5563 /* SwiftRaterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftRaterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		645FF6731E8B8CD0001D5563 /* SwiftRaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftRaterTests.swift; sourceTree = "<group>"; };
-		645FF6751E8B8CD0001D5563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		645FF6801E8B8D0B001D5563 /* SwiftRater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftRater.swift; sourceTree = "<group>"; };
 		645FF6821E8B8D0B001D5563 /* UsageDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsageDataManager.swift; sourceTree = "<group>"; };
 		645FF6891E8B8D6A001D5563 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SwiftRaterLocalization.strings; sourceTree = "<group>"; };
@@ -85,15 +66,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		645FF66B1E8B8CD0001D5563 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				645FF66F1E8B8CD0001D5563 /* SwiftRater.framework in Frameworks */,
-				29116F907DD24DC0C96E97E6 /* Pods_SwiftRaterTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -101,7 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				645FF6671E8B8CD0001D5563 /* SwiftRater */,
-				645FF6721E8B8CD0001D5563 /* SwiftRaterTests */,
 				645FF6661E8B8CD0001D5563 /* Products */,
 				7CD59094432FA12814C8FA0A /* Pods */,
 				EC129F5F8BB0D0A0448507A3 /* Frameworks */,
@@ -112,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				645FF6651E8B8CD0001D5563 /* SwiftRater.framework */,
-				645FF66E1E8B8CD0001D5563 /* SwiftRaterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,22 +100,11 @@
 			path = SwiftRater;
 			sourceTree = "<group>";
 		};
-		645FF6721E8B8CD0001D5563 /* SwiftRaterTests */ = {
-			isa = PBXGroup;
-			children = (
-				645FF6731E8B8CD0001D5563 /* SwiftRaterTests.swift */,
-				645FF6751E8B8CD0001D5563 /* Info.plist */,
-			);
-			path = SwiftRaterTests;
-			sourceTree = "<group>";
-		};
 		7CD59094432FA12814C8FA0A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				EEC2832B3BADDD896B02FA84 /* Pods-SwiftRater.debug.xcconfig */,
 				DCE93429CC9EBCB046F8E5CC /* Pods-SwiftRater.release.xcconfig */,
-				4405946C15D29B7E7A05818B /* Pods-SwiftRaterTests.debug.xcconfig */,
-				279431CCCB72082209407FDF /* Pods-SwiftRaterTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -154,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				96E470D355039E3E4691BF93 /* Pods_SwiftRater.framework */,
-				0BDBE71CB8B2A5B4CB8052D1 /* Pods_SwiftRaterTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,27 +151,6 @@
 			productReference = 645FF6651E8B8CD0001D5563 /* SwiftRater.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		645FF66D1E8B8CD0001D5563 /* SwiftRaterTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 645FF67C1E8B8CD0001D5563 /* Build configuration list for PBXNativeTarget "SwiftRaterTests" */;
-			buildPhases = (
-				9751D667E57E7F1EFA6F28C4 /* [CP] Check Pods Manifest.lock */,
-				645FF66A1E8B8CD0001D5563 /* Sources */,
-				645FF66B1E8B8CD0001D5563 /* Frameworks */,
-				645FF66C1E8B8CD0001D5563 /* Resources */,
-				4503355A77D71DF2A5076797 /* [CP] Embed Pods Frameworks */,
-				18285F5D4E591A936FC3950D /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				645FF6711E8B8CD0001D5563 /* PBXTargetDependency */,
-			);
-			name = SwiftRaterTests;
-			productName = SwiftRaterTests;
-			productReference = 645FF66E1E8B8CD0001D5563 /* SwiftRaterTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,11 +165,6 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = XEV6645KTD;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
-					};
-					645FF66D1E8B8CD0001D5563 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = XEV6645KTD;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -280,7 +212,6 @@
 			projectRoot = "";
 			targets = (
 				645FF6641E8B8CD0001D5563 /* SwiftRater */,
-				645FF66D1E8B8CD0001D5563 /* SwiftRaterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -291,13 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				645FF6881E8B8D6A001D5563 /* SwiftRaterLocalization.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		645FF66C1E8B8CD0001D5563 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,36 +243,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		18285F5D4E591A936FC3950D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftRaterTests/Pods-SwiftRaterTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4503355A77D71DF2A5076797 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftRaterTests/Pods-SwiftRaterTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		93A20284FA9D52B9B3D69E51 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,21 +258,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftRater/Pods-SwiftRater-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9751D667E57E7F1EFA6F28C4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -392,23 +271,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		645FF66A1E8B8CD0001D5563 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				645FF6741E8B8CD0001D5563 /* SwiftRaterTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		645FF6711E8B8CD0001D5563 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 645FF6641E8B8CD0001D5563 /* SwiftRater */;
-			targetProxy = 645FF6701E8B8CD0001D5563 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		645FF68A1E8B8D6A001D5563 /* SwiftRaterLocalization.strings */ = {
@@ -595,34 +458,6 @@
 			};
 			name = Release;
 		};
-		645FF67D1E8B8CD0001D5563 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4405946C15D29B7E7A05818B /* Pods-SwiftRaterTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = XEV6645KTD;
-				INFOPLIST_FILE = SwiftRaterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.takecian.SwiftRaterTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		645FF67E1E8B8CD0001D5563 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 279431CCCB72082209407FDF /* Pods-SwiftRaterTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = XEV6645KTD;
-				INFOPLIST_FILE = SwiftRaterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.takecian.SwiftRaterTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -640,15 +475,6 @@
 			buildConfigurations = (
 				645FF67A1E8B8CD0001D5563 /* Debug */,
 				645FF67B1E8B8CD0001D5563 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		645FF67C1E8B8CD0001D5563 /* Build configuration list for PBXNativeTarget "SwiftRaterTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				645FF67D1E8B8CD0001D5563 /* Debug */,
-				645FF67E1E8B8CD0001D5563 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

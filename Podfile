@@ -8,9 +8,4 @@ target 'SwiftRater' do
   # Pods for SwiftRater
   pod 'SwiftyUserDefaults', '~> 3.0'
 
-  target 'SwiftRaterTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end
