@@ -38,5 +38,5 @@ SwiftRater is a class that you can drop into any iPhone app that will help remin
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.dependency 'SwiftyUserDefaults', '~> 3.0'
 end
