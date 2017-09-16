@@ -118,7 +118,7 @@ import SwiftyUserDefaults
 
     // MARK: - Public Functions
 
-    public static func appLaunch() {
+    public static func appLaunched() {
         if SwiftRater.resetWhenAppUpdated && SwiftRater.appVersion != Defaults[.trackedVersion] {
             UsageDataManager.reset()
             Defaults[.trackedVersion] = SwiftRater.appVersion
