@@ -12,13 +12,11 @@ import SwiftyUserDefaults
 
 @objc public class SwiftRater: NSObject {
 
-    enum ButtonIndex: Int {
-        case cancel = 0
-        case rate = 1
-        case later = 2
-    }
+    // MARK: - Initializers
 
-    public let SwiftRaterErrorDomain = "Siren Error Domain"
+    private override init() { }
+
+    // MARK: - UsageDataManager Accessors
 
     public static var daysUntilPrompt: Int? {
         get {
@@ -62,6 +60,8 @@ import SwiftyUserDefaults
         }
     }
 
+    // MARK: - Public Properties
+
     public static var useStoreKitIfAvailable: Bool = true
 
     public static var showLaterButton: Bool = true
@@ -76,45 +76,38 @@ import SwiftyUserDefaults
     public static var showLog: Bool = false
     public static var resetWhenAppUpdated: Bool = true
 
-    public static var shared = SwiftRater()
-
     public static var appId: String?
 
+    // MARK - Private Computed Properties
+
     private static var appVersion: String {
-        get {
-            return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? "0.0.0"
-        }
+        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? "0.0.0"
     }
 
-    private var titleText: String {
-        return SwiftRater.alertTitle ?? String.init(format: localize("Rate %@"), mainAppName)
+    private static var titleText: String {
+        return SwiftRater.alertTitle ?? "Rate %@".localized(mainAppName)
     }
 
-    private var messageText: String {
-        return SwiftRater.alertMessage ?? String.init(format: localize("Rater.title"), mainAppName)
+    private static var messageText: String {
+        return SwiftRater.alertMessage ?? "Rater.title".localized(mainAppName)
     }
 
-    private var rateText: String {
-        return SwiftRater.alertRateTitle ?? String.init(format: localize("Rate %@"), mainAppName)
+    private static var rateText: String {
+        return SwiftRater.alertRateTitle ?? "Rate %@".localized(mainAppName)
     }
 
-    private var cancelText: String {
-        return SwiftRater.alertCancelTitle ?? String.init(format: localize("No, Thanks"), mainAppName)
+    private static var cancelText: String {
+        return SwiftRater.alertCancelTitle ?? "No, Thanks".localized(mainAppName)
     }
 
-    private var laterText: String {
-        return SwiftRater.alertRateLaterTitle ?? String.init(format: localize("Remind me later"), mainAppName)
+    private static var laterText: String {
+        return SwiftRater.alertRateLaterTitle ?? "Remind me later".localized(mainAppName)
     }
 
-    private func localize(_ key: String) -> String {
-        return NSLocalizedString(key, tableName: "SwiftRaterLocalization", bundle: Bundle(for: SwiftRater.self), comment: "")
-    }
-
-    private var mainAppName: String {
+    private static var mainAppName: String {
         if let name = SwiftRater.appName {
             return name
-        }
-        if let name = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String {
+        }else if let name = Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String {
             return name
         } else if let name = Bundle.main.infoDictionary?["CFBundleName"] as? String {
             return name
@@ -123,54 +116,55 @@ import SwiftyUserDefaults
         }
     }
 
-    private override init() {
-        super.init()
+    // MARK: - Public Functions
 
-        if SwiftRater.resetWhenAppUpdated && SwiftRater.appVersion != Defaults[.trackingVersion] {
-            UsageDataManager.shared.reset()
-            Defaults[.trackingVersion] = SwiftRater.appVersion
+    public static func appLaunch() {
+        if SwiftRater.resetWhenAppUpdated && SwiftRater.appVersion != Defaults[.trackedVersion] {
+            UsageDataManager.reset()
+            Defaults[.trackedVersion] = SwiftRater.appVersion
         }
-        incrementUsageCount()
+        SwiftRater.incrementUsageCount()
     }
 
     public static func incrementSignificantUsageCount() {
-        UsageDataManager.shared.incrementSignificantUseCount()
+        UsageDataManager.incrementSignificantUseCount()
     }
 
     public static func check() {
         if UsageDataManager.shared.ratingConditionsHaveBeenMet {
-            SwiftRater.shared.showRatingAlert()
+            SwiftRater.showRatingAlert()
         }
     }
 
     public static func rateApp() {
-        SwiftRater.shared.rateAppWithAppStore()
+        SwiftRater.rateAppWithAppStore()
         Defaults[.isRateDone] = true
     }
 
     public static func reset() {
-        UsageDataManager.shared.reset()
+        UsageDataManager.reset()
     }
 
-    private func incrementUsageCount() {
-        UsageDataManager.shared.incrementUseCount()
+    // MARK: - Private Functions
+
+    private static func incrementUsageCount() {
+        UsageDataManager.incrementUseCount()
     }
 
-    private func incrementSignificantUseCount() {
-        UsageDataManager.shared.incrementSignificantUseCount()
+    private static func incrementSignificantUseCount() {
+        UsageDataManager.incrementSignificantUseCount()
     }
 
-    private func showRatingAlert() {
-        NSLog("[SwiftRater] Trying to show review request dialog.")
+    private static func showRatingAlert() {
+        print("[SwiftRater] Trying to show review request dialog.")
         if #available(iOS 10.3, *), SwiftRater.useStoreKitIfAvailable {
             SKStoreReviewController.requestReview()
             Defaults[.isRateDone] = true
         } else {
             let alertController = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
 
-            let rateAction = UIAlertAction(title: rateText, style: .default, handler: {
-                [unowned self] action -> Void in
-                self.rateAppWithAppStore()
+            let rateAction = UIAlertAction(title: rateText, style: .default, handler: { action -> Void in
+                SwiftRater.rateAppWithAppStore()
                 Defaults[.isRateDone] = true
             })
             alertController.addAction(rateAction)
@@ -178,7 +172,7 @@ import SwiftyUserDefaults
             if SwiftRater.showLaterButton {
                 alertController.addAction(UIAlertAction(title: laterText, style: .default, handler: {
                     action -> Void in
-                    UsageDataManager.shared.saveReminderRequestDate()
+                    UsageDataManager.saveReminderRequestDate()
                 }))
             }
 
@@ -195,9 +189,9 @@ import SwiftyUserDefaults
         }
     }
 
-    private func rateAppWithAppStore() {
+    private static func rateAppWithAppStore() {
         #if arch(i386) || arch(x86_64)
-            print("APPIRATER NOTE: iTunes App Store is not supported on the iOS simulator. Unable to open App Store page.")
+            print("SWIFTRATER NOTE: iTunes App Store is not supported on the iOS simulator. Unable to open App Store page.")
         #else
             guard let appId = SwiftRater.appId,
                   let url = URL(string: "https://itunes.apple.com/app/id\(appId)?action=write-review") else {

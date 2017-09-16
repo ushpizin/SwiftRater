@@ -11,6 +11,14 @@ import SwiftyUserDefaults
 
 class UsageDataManager {
 
+    // MARK: - Initializers
+
+    private init() { }
+
+    // MARK: - Public Properties
+
+    static let shared = UsageDataManager()
+
     var daysUntilPrompt: Int?
     var usesUntilPrompt: Int?
     var significantUsesUntilPrompt: Int?
@@ -19,7 +27,7 @@ class UsageDataManager {
     var showLaterButton: Bool = true
     var debugMode: Bool = false
 
-    static var shared = UsageDataManager()
+    // MARK: - Public Computed Properties
 
     var ratingConditionsHaveBeenMet: Bool {
         guard !debugMode else { // if debug mode, return always true
@@ -37,7 +45,9 @@ class UsageDataManager {
                 printMessage(" will check daysBeforeReminding")
                 let timeSinceReminderRequest = Date().timeIntervalSince(reminderRequestDate)
                 let timeUntilRate = 60 * 60 * 24 * daysBeforeReminding
-                guard Int(timeSinceReminderRequest) < timeUntilRate else { return true }
+                if Int(timeSinceReminderRequest) >= timeUntilRate {
+                    return true
+                }
             }
         } else {
             // check if the app has been used enough days
@@ -46,45 +56,55 @@ class UsageDataManager {
                 if let dateOfFirstLaunch = Defaults[.firstUseDate] {
                     let timeSinceFirstLaunch = Date().timeIntervalSince(dateOfFirstLaunch)
                     let timeUntilRate = 60 * 60 * 24 * daysUntilPrompt
-                    guard Int(timeSinceFirstLaunch) < timeUntilRate else { return true }
+                    if Int(timeSinceFirstLaunch) >= timeUntilRate {
+                        return true
+                    }
                 }
             }
 
             // check if the app has been used enough times
             if let usesUntilPrompt = usesUntilPrompt {
                 printMessage(" will check usesUntilPrompt")
-                guard Defaults[.useCount] < usesUntilPrompt else { return true }
+                if Defaults[.usesCount] >= usesUntilPrompt {
+                    return true
+                }
             }
 
             // check if the user has done enough significant events
             if let significantUsesUntilPrompt = significantUsesUntilPrompt {
                 printMessage(" will check significantUsesUntilPrompt")
-                guard Defaults[.significantEventCount] < significantUsesUntilPrompt else { return true }
+                if Defaults[.significantEventsCount] >= significantUsesUntilPrompt {
+                    return true
+                }
             }
         }
 
         return false
     }
 
-    func reset() {
+    // MARK: - Public Class Methods
+
+    static func reset() {
         Defaults[.firstUseDate] = nil
-        Defaults[.useCount] = 0
-        Defaults[.significantEventCount] = 0
+        Defaults[.usesCount] = 0
+        Defaults[.significantEventsCount] = 0
         Defaults[.isRateDone] = false
         Defaults[.reminderRequestDate] = nil
     }
 
-    func incrementUseCount() {
-        Defaults[.useCount] += 1
+    static func incrementUseCount() {
+        Defaults[.usesCount] += 1
     }
 
-    func incrementSignificantUseCount() {
-        Defaults[.useCount] += 1
+    static func incrementSignificantUseCount() {
+        Defaults[.usesCount] += 1
     }
 
-    func saveReminderRequestDate() {
+    static func saveReminderRequestDate() {
         Defaults[.reminderRequestDate] = Date()
     }
+
+    // MARK: - Private Methods
 
     private func printMessage(_ message: String) {
         if SwiftRater.showLog {
