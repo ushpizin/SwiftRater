@@ -8,6 +8,7 @@
 
 import UIKit
 import StoreKit
+import SwiftyUserDefaults
 
 @objc public class SwiftRater: NSObject {
 
@@ -125,9 +126,9 @@ import StoreKit
     private override init() {
         super.init()
 
-        if SwiftRater.resetWhenAppUpdated && SwiftRater.appVersion != UsageDataManager.shared.trackingVersion {
+        if SwiftRater.resetWhenAppUpdated && SwiftRater.appVersion != Defaults[.trackingVersion] {
             UsageDataManager.shared.reset()
-            UsageDataManager.shared.trackingVersion = SwiftRater.appVersion
+            Defaults[.trackingVersion] = SwiftRater.appVersion
         }
         incrementUsageCount()
     }
@@ -144,7 +145,7 @@ import StoreKit
 
     public static func rateApp() {
         SwiftRater.shared.rateAppWithAppStore()
-        UsageDataManager.shared.isRateDone = true
+        Defaults[.isRateDone] = true
     }
 
     public static func reset() {
@@ -163,14 +164,14 @@ import StoreKit
         NSLog("[SwiftRater] Trying to show review request dialog.")
         if #available(iOS 10.3, *), SwiftRater.useStoreKitIfAvailable {
             SKStoreReviewController.requestReview()
-            UsageDataManager.shared.isRateDone = true
+            Defaults[.isRateDone] = true
         } else {
             let alertController = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
 
             let rateAction = UIAlertAction(title: rateText, style: .default, handler: {
                 [unowned self] action -> Void in
                 self.rateAppWithAppStore()
-                UsageDataManager.shared.isRateDone = true
+                Defaults[.isRateDone] = true
             })
             alertController.addAction(rateAction)
 
@@ -183,7 +184,7 @@ import StoreKit
 
             alertController.addAction(UIAlertAction(title: cancelText, style: .cancel, handler: {
                 action -> Void in
-                UsageDataManager.shared.isRateDone = true
+                Defaults[.isRateDone] = true
             }))
 
             if #available(iOS 9.0, *) {
