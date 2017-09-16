@@ -130,10 +130,13 @@ import SwiftyUserDefaults
         UsageDataManager.incrementSignificantUseCount()
     }
 
-    public static func check() {
-        if UsageDataManager.shared.ratingConditionsHaveBeenMet {
-            SwiftRater.showRatingAlert()
+    public static func check() -> Bool {
+        guard UsageDataManager.shared.ratingConditionsHaveBeenMet else {
+            return false
         }
+
+        SwiftRater.showRatingAlert()
+        return true
     }
 
     public static func rateApp() {
