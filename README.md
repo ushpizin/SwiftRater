@@ -1,8 +1,9 @@
 # SwiftRater
 
-[![Version](https://img.shields.io/cocoapods/v/SwiftRater.svg?style=flat)](http://cocoapods.org/pods/SwiftRater)
-[![License](https://img.shields.io/cocoapods/l/SwiftRater.svg?style=flat)](http://cocoapods.org/pods/SwiftRater)
-[![Platform](https://img.shields.io/cocoapods/p/SwiftRater.svg?style=flat)](http://cocoapods.org/pods/SwiftRater)
+[![Version](https://img.shields.io/cocoapods/v/SwiftRater.svg)](http://cocoapods.org/pods/SwiftRater)
+[![License](https://img.shields.io/cocoapods/l/SwiftRater.svg)](http://cocoapods.org/pods/SwiftRater)
+[![Platform](https://img.shields.io/cocoapods/p/SwiftRater.svg)](http://cocoapods.org/pods/SwiftRater)
+[![Swift](https://img.shields.io/badge/Swift-3.0-green.svg)](http://cocoapods.org/pods/SwiftRater)
 
 SwiftRater is a class that you can drop into any iPhone app that will help remind your users to review your app on the App Store/in your app.
 
@@ -132,10 +133,6 @@ You can customize text in review request dialog for iOS10.2 or before devices. S
 - SwiftRater.alertRateTitle
 - SwiftRater.alertRateLaterTitle
 - SwiftRater.appName
-
-## Demo
-
-You can find Demo app in this repo.
 
 ## Author
 
